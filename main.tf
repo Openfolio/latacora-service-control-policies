@@ -9,12 +9,12 @@ module "security_scp" {
   target_ou_id    = var.target_ou_id
   enabled_regions = var.enabled_regions
 
-  deny_account_changes                = var.security_policy_items.deny_account_changes
-  deny_billing_changes                = var.security_policy_items.deny_billing_changes
-  deny_cloudtrail_changes             = var.security_policy_items.deny_cloudtrail_changes
-  deny_leaving_orgs                   = var.security_policy_items.deny_leaving_orgs
-  enabled_regions_policy              = var.security_policy_items.enabled_regions_policy
-  restrict_member_account_root_users  = var.security_policy_items.restrict_member_account_root_users
+  deny_account_changes               = var.security_policy_items.deny_account_changes
+  deny_billing_changes               = var.security_policy_items.deny_billing_changes
+  deny_cloudtrail_changes            = var.security_policy_items.deny_cloudtrail_changes
+  deny_leaving_orgs                  = var.security_policy_items.deny_leaving_orgs
+  enabled_regions_policy             = var.security_policy_items.enabled_regions_policy
+  restrict_member_account_root_users = var.security_policy_items.restrict_member_account_root_users
 }
 
 module "infrastructure_scp" {

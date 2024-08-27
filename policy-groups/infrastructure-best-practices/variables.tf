@@ -39,6 +39,12 @@ variable "deny_s3_public_access" {
   type        = bool
 }
 
+variable "iac_arns_permitted_to_manage_s3_public_access" {
+  description = "Allow IAC ARN list to control bucket public access policy"
+  default     = []
+  type        = list(string)
+}
+
 variable "require_rds_encryption" {
   description = "Requires RDS encryption"
   default     = true

@@ -69,6 +69,14 @@ data "aws_iam_policy_document" "combined_policy_block" {
       effect    = "Deny"
       actions   = ["s3:PutAccountPublicAccessBlock"]
       resources = ["*"]
+      dynamic "condition" {
+        for_each = length(var.iac_arns_permitted_to_manage_s3_public_access) ? [1] : []
+        content {
+          test      = "ArnNotEquals"
+          variable  = "aws:PrincipalArn"
+          values    = [var.iac_arns_permitted_to_manage_s3_public_access]
+        }
+      }
     }
   }
 

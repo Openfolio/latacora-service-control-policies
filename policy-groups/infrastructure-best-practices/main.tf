@@ -70,7 +70,7 @@ data "aws_iam_policy_document" "combined_policy_block" {
       actions   = ["s3:PutAccountPublicAccessBlock"]
       resources = ["*"]
       dynamic "condition" {
-        for_each = length(var.iac_arns_permitted_to_manage_s3_public_access) ? [1] : []
+        for_each = length(var.iac_arns_permitted_to_manage_s3_public_access) > 0 ? [1] : []
         content {
           test      = "ArnNotEquals"
           variable  = "aws:PrincipalArn"
